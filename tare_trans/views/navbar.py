@@ -22,7 +22,7 @@ def navbar() -> rx.Component:
 
             rx.spacer(),  # Empuja todo hacia la izquierda
             link_icon(
-                "buildings",
+                "building",
                 constants.UIE_URL
             ),
 

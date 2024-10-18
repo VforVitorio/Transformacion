@@ -43,15 +43,15 @@ def header() -> rx.Component:
         width="100%",
         min_height="60vh",
         overflow="hidden",
-        _before={
-            "content": "''",
-            "position": "absolute",
-            "top": "0",
-            "left": "0",
-            "right": "0",
-            "bottom": "0",
-            "background": f"linear-gradient(to right, {Color.SECONDARY.value}CC, {Color.SECONDARY.value}CC)",
-            "backdrop_filter": "blur(5px)",
-            "z_index": "0",
-        },
+        before=rx.box(
+            position="absolute",
+            top="0",
+            left="0",
+            right="0",
+            bottom="0",
+            background=f"linear-gradient(to right, {Color.SECONDARY.value}CC, {
+                Color.SECONDARY.value}99)",
+            backdrop_filter="blur(3px)",
+            z_index="0",
+        )
     )
