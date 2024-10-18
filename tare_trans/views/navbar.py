@@ -10,7 +10,7 @@ def navbar() -> rx.Component:
     return rx.vstack(
         rx.hstack(
             rx.image(
-                src="uie.png",
+                src="/uie.png",
                 alt="Imagen de la universidad en modo oscuro",
                 width=Size.VERY_BIG.value,
                 height=Size.VERY_BIG.value,
