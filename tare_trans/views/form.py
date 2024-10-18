@@ -1,5 +1,6 @@
 import reflex as rx
 from tare_trans.styles.colors import Color, TextColor
+from tare_trans.components.redirect import redirect_based_on_sector
 
 
 def form() -> rx.Component:
@@ -31,7 +32,7 @@ def form() -> rx.Component:
                                         color=TextColor.PRIMARY.value, font_size="sm", font_weight="medium"),
                                 rx.select(
                                     ["Sector primario", "Sector secundario",
-                                     "Sector terciario"],
+                                        "Sector terciario"],
                                     placeholder="Selecciona un sector",
                                     color=TextColor.PRIMARY.value,
                                     bg=Color.SECONDARY.value,
@@ -67,7 +68,7 @@ def form() -> rx.Component:
                                     bg=Color.ACCENT.value,
                                     color=TextColor.PRIMARY.value,
                                     _hover={"opacity": 0.8},
-                                    on_click=rx.redirect("/next_section"),
+                                    on_click=redirect_based_on_sector,
                                     is_disabled=rx.select("sector") == "",
                                 ),
                                 justify_content="space-between",
@@ -80,11 +81,10 @@ def form() -> rx.Component:
                     ),
                     padding="8",
                 ),
-                # Ajustado para pantallas grandes (relativo al viewport)
                 width="50vw",
-                max_width="600px",  # Máximo ancho para pantallas grandes
-                min_width="300px",  # Ancho mínimo para pantallas pequeñas
-                height="auto",  # Dejar la altura adaptable al contenido
+                max_width="600px",
+                min_width="300px",
+                height="auto",
                 margin_top="5vh",
                 background=f"rgba(127, 86, 217, 0.1)",
                 backdrop_filter="blur(10px)",
@@ -93,7 +93,7 @@ def form() -> rx.Component:
                 box_shadow="0 8px 32px 0 rgba(127, 86, 217, 0.2)",
             ),
             width="100%",
-            height="auto",  # Ajustable en altura
+            height="auto",
             align_items="center",
             justify_content="flex-start",
             padding_top="5vh",
