@@ -1,5 +1,5 @@
 import reflex as rx
-from tare_trans.state import State
+
 from tare_trans.styles.styles import Size
 from tare_trans.styles.colors import Color, TextColor
 
@@ -20,15 +20,17 @@ def header() -> rx.Component:
                 margin_top=Size.DEFAULT.value,
                 margin_bottom=Size.DEFAULT.value,
             ),
-            rx.button(
-                "Comenzar el cuestionario",
-                on_click=State.start_questionnaire,
-                bg_color=Color.ACCENT.value,
-                color="white",
-                padding="1.75em 3em",
-                font_size="1.1em",
-                border_radius="1em",
-                _hover={"bg_color": "#6d28d9"},
+            rx.link(
+                rx.button(
+                    "Comenzar el cuestionario",
+                    bg_color=Color.ACCENT.value,
+                    color="white",
+                    padding="1.75em 3em",
+                    font_size="1.1em",
+                    border_radius="1em",
+                    _hover={"bg_color": "#6d28d9"},
+                ),
+                href="/form",  # URL a la que redirige el botón
             ),
             spacing="5",
             align_items="center",
@@ -49,8 +51,7 @@ def header() -> rx.Component:
             left="0",
             right="0",
             bottom="0",
-            background=f"linear-gradient(to right, {Color.SECONDARY.value}CC, {
-                Color.SECONDARY.value}99)",
+            background=f"linear-gradient(to right, {Color.SECONDARY.value}CC, {Color.SECONDARY.value}99)",  # noqa
             backdrop_filter="blur(3px)",
             z_index="0",
         )

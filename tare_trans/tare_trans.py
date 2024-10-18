@@ -4,6 +4,7 @@ from tare_trans.styles.styles import Size
 from tare_trans.views.navbar import navbar
 from tare_trans.views.header import header
 from tare_trans.components.glassy import glassy_background
+from tare_trans.views.form import form
 
 
 def index() -> rx.Component:
@@ -20,6 +21,21 @@ def index() -> rx.Component:
     )
 
 
+def page_form() -> rx.Component:
+    return rx.box(
+        glassy_background(),
+        navbar(),
+
+        rx.center(
+            rx.vstack(
+                form(),
+                spacing=Size.VERY_BIG.value
+            ),
+            width="100%"
+        )
+    )
+
+
 app = rx.App(
     # Cargamos las dos hojas de estilo definidas en styles.py
     stylesheets=styles.STYLESHEETS,
@@ -27,4 +43,13 @@ app = rx.App(
 )
 app.add_page(index,
              title="Proyecto de Transformación Digital",
-             description="Se implementará un cuestionario de evaluación en relación a la transformación digital")
+             description="Se implementará un cuestionario de evaluación en relación a la transformación digital",
+             route="/"
+             )
+
+app.add_page(
+    page_form,
+    title="Formulario principio",
+    description="formulario para determinar el sector al que se dedica la empresa y puesto que ocupa el usuario",
+    route="/form"
+)
