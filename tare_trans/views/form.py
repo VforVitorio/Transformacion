@@ -3,6 +3,19 @@ from tare_trans.styles.colors import Color, TextColor
 from tare_trans.components.redirect import redirect_based_on_sector
 
 
+class FormState(rx.State):
+    sector: str = ""
+
+    def set_sector(self, value: str):
+        self.sector = value
+
+    def handle_submit(self, form_data: dict):
+        if self.sector:
+            return rx.redirect(f"/{self.sector.lower().replace(' ', '-')}")
+        else:
+            return rx.window_alert("Por favor, selecciona un sector")
+
+
 def form() -> rx.Component:
     return rx.box(
         rx.vstack(
@@ -10,7 +23,7 @@ def form() -> rx.Component:
                 rx.vstack(
                     rx.heading("Antes de empezar...", size="2xl",
                                text_align="center", margin_bottom="6"),
-                    rx.form(
+                    rx.form.root(
                         rx.vstack(
                             rx.vstack(
                                 rx.text("Nombre", color=TextColor.PRIMARY.value,
@@ -40,7 +53,8 @@ def form() -> rx.Component:
                                     _focus={
                                         "border_color": Color.ACCENT.value},
                                     width="100%",
-                                    id="sector",
+                                    value=FormState.sector,
+                                    on_change=FormState.set_sector,
                                 ),
                                 rx.text(
                                     "Por favor, selecciona un sector",
@@ -63,13 +77,15 @@ def form() -> rx.Component:
                                             "color": TextColor.PRIMARY.value},
                                     on_click=rx.redirect("/"),
                                 ),
-                                rx.button(
-                                    "Next",
-                                    bg=Color.ACCENT.value,
-                                    color=TextColor.PRIMARY.value,
-                                    _hover={"opacity": 0.8},
-                                    on_click=redirect_based_on_sector,
-                                    is_disabled=rx.select("sector") == "",
+                                rx.form.submit(
+                                    rx.button(
+                                        "Next",
+                                        bg=Color.ACCENT.value,
+                                        color=TextColor.PRIMARY.value,
+                                        _hover={"opacity": 0.8},
+                                        is_disabled=rx.select("sector") == "",
+                                    ),
+                                    as_child=True,
                                 ),
                                 justify_content="space-between",
                                 width="100%",
@@ -78,7 +94,9 @@ def form() -> rx.Component:
                             spacing="4",
                             width="100%",
                         ),
+                        on_submit=FormState.handle_submit,
                     ),
+
                     padding="8",
                 ),
                 width="50vw",

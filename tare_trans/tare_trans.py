@@ -6,6 +6,7 @@ from tare_trans.views.header import header
 from tare_trans.components.glassy import glassy_background
 from tare_trans.views.form import form
 
+
 def index() -> rx.Component:
     return rx.box(
         glassy_background(),
@@ -18,6 +19,7 @@ def index() -> rx.Component:
             width="100%"
         )
     )
+
 
 def page_form() -> rx.Component:
     return rx.box(
@@ -32,35 +34,48 @@ def page_form() -> rx.Component:
         )
     )
 
+
 def sector_primario() -> rx.Component:
     return rx.box(
         glassy_background(),
         navbar(),
         rx.center(
-            rx.text("Contenido para el Sector Primario"),
+            rx.vstack(
+                rx.text("Página para el sector primario"),
+                spacing=Size.VERY_BIG.value
+            ),
             width="100%"
         )
     )
+
 
 def sector_secundario() -> rx.Component:
     return rx.box(
         glassy_background(),
         navbar(),
         rx.center(
-            rx.text("Contenido para el Sector Secundario"),
+            rx.vstack(
+                rx.text("Página para el sector secundario"),
+                spacing=Size.VERY_BIG.value
+            ),
             width="100%"
         )
     )
+
 
 def sector_terciario() -> rx.Component:
     return rx.box(
         glassy_background(),
         navbar(),
         rx.center(
-            rx.text("Contenido para el Sector Terciario"),
+            rx.vstack(
+                rx.text("Página para el sector terciario"),
+                spacing=Size.VERY_BIG.value
+            ),
             width="100%"
         )
     )
+
 
 app = rx.App(
     stylesheets=styles.STYLESHEETS,
@@ -83,20 +98,20 @@ app.add_page(
 app.add_page(
     sector_primario,
     title="Sector Primario",
-    description="Contenido específico para el sector primario",
-    route="/sector_primario"
+    description="Página para el sector primario",
+    route="/sector-primario"
 )
 
 app.add_page(
     sector_secundario,
     title="Sector Secundario",
-    description="Contenido específico para el sector secundario",
-    route="/sector_secundario"
+    description="Página para el sector secundario",
+    route="/sector-secundario"
 )
 
 app.add_page(
     sector_terciario,
     title="Sector Terciario",
-    description="Contenido específico para el sector terciario",
-    route="/sector_terciario"
+    description="Página para el sector terciario",
+    route="/sector-terciario"
 )
