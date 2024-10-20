@@ -7,18 +7,26 @@ from tare_trans.state import State
 def questionnaire() -> rx.Component:
     return rx.box(
         rx.vstack(
-            rx.heading("Cuestionario",
+            rx.heading("Transformación Digital",
                        color=TextColor.PRIMARY.value,
-                       font_size=["2em", "2.5em", "3em", "3.25em"]),
+                       font_size=["2em", "2.5em", "3em", "3.25em"],
+                       text_align="center",
+                       width="100%",
+                       ),
             rx.text(State.current_question_number,
                     color=TextColor.SECONDARY.value,
-                    font_size=["1em", "1.2em", "1.3em", "1.5em"]),
+                    font_size=["1em", "1.2em", "1.3em", "1.5em"],
+                    text_align="center",
+                    width="100%",
+
+                    ),
             ProgressBar(progress=State.progress_percentage),
             rx.card(
                 rx.text(
                     State.current_question_data["question"],
                     color=TextColor.PRIMARY.value,
-                    font_size=["1em", "1.1em", "1.2em", "1.25em"]
+                    font_size=["1em", "1.1em", "1.2em", "1.25em"],
+                    text_align="center"
                 ),
                 bg_color=Color.SECONDARY.value,
                 width="100%",
@@ -31,6 +39,8 @@ def questionnaire() -> rx.Component:
                 align_items="flex_start",
                 width="100%",
                 spacing="1em",
+                direction="column",
+                size="3",
             ),
             rx.hstack(
                 rx.button(

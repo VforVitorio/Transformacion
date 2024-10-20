@@ -7,8 +7,8 @@ class State(rx.State):
     answers: List[str] = [""] * 35
     questions: List[Dict[str, List[str]]] = [
         {
-            "question": "Pregunta 1",
-            "options": ["Opción 1", "Opción 2", "Opción 3", "Opción 4"]
+            "question": "pregunta 1",
+            "options": ["Opcion 1", "Opcion 2", "Opcion 3", "Opcion 4"]
         },
         # ... Add the remaining 34 questions here
     ]
