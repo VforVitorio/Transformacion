@@ -5,12 +5,15 @@ from tare_trans.views.navbar import navbar
 from tare_trans.views.header import header
 from tare_trans.components.glassy import glassy_background
 from tare_trans.views.form import form
+from tare_trans.components.cursor import custom_cursor
+from tare_trans.views.questionnaire import questionnaire
 
 
 def index() -> rx.Component:
     return rx.box(
         glassy_background(),
         navbar(),
+        custom_cursor(),
         rx.center(
             rx.vstack(
                 header(),
@@ -25,6 +28,7 @@ def page_form() -> rx.Component:
     return rx.box(
         glassy_background(),
         navbar(),
+        custom_cursor(),
         rx.center(
             rx.vstack(
                 form(),
@@ -39,9 +43,10 @@ def sector_primario() -> rx.Component:
     return rx.box(
         glassy_background(),
         navbar(),
+        custom_cursor(),
         rx.center(
             rx.vstack(
-                rx.text("Página para el sector primario"),
+                questionnaire(),
                 spacing=Size.VERY_BIG.value
             ),
             width="100%"
@@ -53,9 +58,10 @@ def sector_secundario() -> rx.Component:
     return rx.box(
         glassy_background(),
         navbar(),
+        custom_cursor(),
         rx.center(
             rx.vstack(
-                rx.text("Página para el sector secundario"),
+                questionnaire(),
                 spacing=Size.VERY_BIG.value
             ),
             width="100%"
@@ -67,9 +73,10 @@ def sector_terciario() -> rx.Component:
     return rx.box(
         glassy_background(),
         navbar(),
+        custom_cursor(),
         rx.center(
             rx.vstack(
-                rx.text("Página para el sector terciario"),
+                questionnaire(),
                 spacing=Size.VERY_BIG.value
             ),
             width="100%"
