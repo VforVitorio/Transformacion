@@ -19,8 +19,8 @@ def results() -> rx.Component:
                 height=300,
                 inner_radius="60%",
                 outer_radius="80%",
-                start_angle={180},
-                end_angle={0},
+                start_angle=180,
+                end_angle=0,
             ),
             rx.vstack(
                 rx.foreach(
