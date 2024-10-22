@@ -7,6 +7,7 @@ from tare_trans.components.glassy import glassy_background
 from tare_trans.views.form import form
 from tare_trans.components.cursor import custom_cursor
 from tare_trans.views.questionnaire import questionnaire
+from tare_trans.views.results import results
 
 
 def index() -> rx.Component:
@@ -32,6 +33,21 @@ def page_form() -> rx.Component:
         rx.center(
             rx.vstack(
                 form(),
+                spacing=Size.VERY_BIG.value
+            ),
+            width="100%"
+        )
+    )
+
+
+def results_page() -> rx.Component:
+    return rx.box(
+        glassy_background(),
+        navbar(),
+        custom_cursor(),
+        rx.center(
+            rx.vstack(
+                results(),
                 spacing=Size.VERY_BIG.value
             ),
             width="100%"
@@ -121,4 +137,11 @@ app.add_page(
     title="Sector Terciario",
     description="Página para el sector terciario",
     route="/sector-terciario"
+)
+
+app.add_page(
+    results_page,
+    title="Resultados",
+    description="Resultados de la evaluación de madurez digital",
+    route="/results"
 )

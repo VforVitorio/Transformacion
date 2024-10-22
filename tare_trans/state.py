@@ -3,6 +3,10 @@ from typing import List, Dict, Tuple, Union
 
 
 class State(rx.State):
+
+    total_score: float = 0.0
+    area_scores: Dict[str, float] = {}
+    maturity_level: str = ""
     current_question: int = 0
     answers: List[str] = [""] * 30
 
@@ -388,14 +392,19 @@ class State(rx.State):
     def next_question(self):
         if self.current_question < 29:
             self.current_question += 1
+        elif self.current_question == 29:
+            self.show_results()
 
     def previous_question(self):
         if self.current_question > 0:
             self.current_question -= 1
 
-# TODO:
-# def next_question(self):
-#     if self.current_question < 29:
-#         self.current_question += 1
-#     elif self.current_question == 29:
-#         self.show_results()  # Este método aún no está implementado
+    def change_page(self):
+        return rx.redirect("/results", external=False)
+
+    def show_results(self):
+        total_score, area_scores = self.calculate_total_score()
+        self.maturity_level = self.get_maturity_level(total_score)
+        self.area_scores = area_scores
+        self.total_score = total_score
+        return rx.redirect("/results")
