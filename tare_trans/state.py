@@ -353,14 +353,15 @@ class State(rx.State):
         return answer_index  # En este caso, el índice corresponde directamente a la puntuación (0-4)
 
     def answer_question(self, answer: str):
-        self.answers[self.current_question] = answer
+        if answer.isdigit():
+            self.answers[self.current_question] = answer
+        else:
+            self.answers[self.current_question] = "0"
 
     def calculate_area_score(self, area_questions: range) -> Tuple[float, float]:
-        """Calcula la puntuación para un área específica."""
-        total_possible = len(area_questions) * \
-            4  # Máxima puntuación posible (4 puntos por pregunta)
-        area_score = sum(int(self.answers[q])
-                         for q in area_questions if self.answers[q])
+        total_possible = len(area_questions) * 4
+        area_score = sum(int(self.answers[q]) if self.answers[q].isdigit(
+        ) else 0 for q in area_questions if self.answers[q])
         return area_score, (area_score / total_possible) * 100
 
     def calculate_total_score(self) -> Tuple[float, Dict[str, float]]:
