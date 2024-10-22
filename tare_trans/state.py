@@ -334,7 +334,7 @@ class State(rx.State):
 
     @rx.var
     def current_answer(self) -> str:
-        return self.answers[self.current_question]
+        return self.answers[self.current_question] or ""
 
     @rx.var
     def is_first_question(self) -> bool:
@@ -349,17 +349,7 @@ class State(rx.State):
         return answer_index  # En este caso, el índice corresponde directamente a la puntuación (0-4)
 
     def answer_question(self, answer: str):
-        """
-        Guarda la respuesta y calcula su puntuación.
-        El parámetro answer es la respuesta completa (texto), necesitamos encontrar su índice.
-        """
-        # Encontrar el índice de la respuesta seleccionada
-        current_options = self.questions[self.current_question]["options"]
-        try:
-            answer_index = current_options.index(answer)
-            self.answers[self.current_question] = str(answer_index)
-        except ValueError:
-            print(f"Error: Respuesta no encontrada en las opciones: {answer}")
+        self.answers[self.current_question] = answer
 
     def calculate_area_score(self, area_questions: range) -> Tuple[float, float]:
         """Calcula la puntuación para un área específica."""

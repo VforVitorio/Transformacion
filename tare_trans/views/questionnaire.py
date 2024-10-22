@@ -32,7 +32,7 @@ def questionnaire() -> rx.Component:
                 width="100%",
                 padding="1.5em",
             ),
-           rx.radio(
+            rx.radio(
                 State.current_question_data["options"],
                 value=State.current_answer,
                 on_change=State.answer_question,
