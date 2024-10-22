@@ -102,7 +102,10 @@ def sector_terciario() -> rx.Component:
 
 app = rx.App(
     stylesheets=styles.STYLESHEETS,
-    style=styles.BASE_STYLE
+    style=styles.BASE_STYLE,
+    frontend_packages=[
+        "react-countup",
+    ]
 )
 
 app.add_page(index,

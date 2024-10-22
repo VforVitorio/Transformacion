@@ -1,5 +1,5 @@
 import reflex as rx
-from typing import List, Dict, Tuple, Union
+from typing import List, Dict, Tuple, Union, Any
 
 
 class State(rx.State):
@@ -341,6 +341,11 @@ class State(rx.State):
         return self.answers[self.current_question] or ""
 
     @rx.var
+    def radar_chart_data(self) -> list:
+        return [{"area": area["name"], "score": self.area_scores.get(area_key, 0)}
+                for area_key, area in self.areas.items()]
+
+    @rx.var
     def is_first_question(self) -> bool:
         return self.current_question == 0
 
@@ -353,10 +358,7 @@ class State(rx.State):
         return answer_index  # En este caso, el índice corresponde directamente a la puntuación (0-4)
 
     def answer_question(self, answer: str):
-        if answer.isdigit():
-            self.answers[self.current_question] = answer
-        else:
-            self.answers[self.current_question] = "0"
+        self.answers[self.current_question] = answer
 
     def calculate_area_score(self, area_questions: range) -> Tuple[float, float]:
         total_possible = len(area_questions) * 4
@@ -393,8 +395,8 @@ class State(rx.State):
     def next_question(self):
         if self.current_question < 29:
             self.current_question += 1
-        elif self.current_question == 29:
-            self.show_results()
+        else:
+            return self.show_results()
 
     def previous_question(self):
         if self.current_question > 0:
