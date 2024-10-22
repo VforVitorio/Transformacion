@@ -12,5 +12,5 @@ class CountUp(rx.Component):
 countup = CountUp.create
 
 
-def animated_score(score: float) -> rx.Component:
+def animated_score(score):
     return countup(end=score, duration=2)

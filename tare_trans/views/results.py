@@ -13,8 +13,7 @@ def results() -> rx.Component:
                     background=True,
                     label={"fill": "#666", "position": "insideStart"},
                 ),
-                data=[
-                    {"name": "Total", "score": rx.Var.create(State.total_score)}],
+                data=[{"name": "Total", "score": State.total_score}],
                 width=300,
                 height=300,
                 inner_radius="60%",
@@ -24,10 +23,10 @@ def results() -> rx.Component:
             ),
             rx.vstack(
                 rx.foreach(
-                    State.area_scores,
-                    lambda key, value: rx.hstack(
-                        rx.text(key),
-                        animated_score(value)
+                    State.area_scores.items(),
+                    lambda item: rx.hstack(
+                        rx.text(item[0]),
+                        animated_score(item[1])
                     )
                 )
             )
