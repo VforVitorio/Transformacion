@@ -392,3 +392,10 @@ class State(rx.State):
     def previous_question(self):
         if self.current_question > 0:
             self.current_question -= 1
+
+# TODO:
+# def next_question(self):
+#     if self.current_question < 29:
+#         self.current_question += 1
+#     elif self.current_question == 29:
+#         self.show_results()  # Este método aún no está implementado
