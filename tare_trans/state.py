@@ -9,7 +9,7 @@ class State(rx.State):
     maturity_level: str = ""
     current_question: int = 0
     answers: List[str] = [""] * 30
-
+    scores: List[int] = [0] * 30
     # Definición de las áreas y sus pesos
     areas = {
         "estrategia": {"name": "Estrategia y Liderazgo Digital", "weight": 0.20, "questions": range(0, 5)},
@@ -359,11 +359,13 @@ class State(rx.State):
 
     def answer_question(self, answer: str):
         self.answers[self.current_question] = answer
+        # Calculate and store the score
+        score = self.questions[self.current_question]["options"].index(answer)
+        self.scores[self.current_question] = score
 
     def calculate_area_score(self, area_questions: range) -> Tuple[float, float]:
         total_possible = len(area_questions) * 4
-        area_score = sum(int(self.answers[q]) if self.answers[q].isdigit(
-        ) else 0 for q in area_questions if self.answers[q])
+        area_score = sum(self.scores[q] for q in area_questions)
         return area_score, (area_score / total_possible) * 100
 
     def calculate_total_score(self) -> Tuple[float, Dict[str, float]]:
