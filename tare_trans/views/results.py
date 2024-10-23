@@ -18,7 +18,7 @@ def results() -> rx.Component:
 
             rx.recharts.radial_bar(
                 data_key="score",
-                background=True,
+
                 label={
                     "fill": "#FFFFFF",  # TextColor.PRIMARY
                     "position": "center",  # Centered text
