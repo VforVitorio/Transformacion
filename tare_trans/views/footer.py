@@ -27,12 +27,7 @@ def footer() -> rx.Component:
             align_items="start",
             spacing=Size.MEDIUM.value
         ),
-        rx.spacer(),
-        rx.image(
-            src="uie.png",
-            width="5%",
-            alt="Logo victor"
-        ),
+
         padding_bottom=Size.BIG.value,
         style=styles.max_width_style
     )

@@ -24,7 +24,7 @@ def index() -> rx.Component:
             ),
             width="100%"
         ),
-        footer()  # Añadir el footer aquí
+
     )
 
 
