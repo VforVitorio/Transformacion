@@ -27,7 +27,7 @@ def results() -> rx.Component:
                 color="white",
                 font_weight="bold",
             ),
-            width="80%",
+            width=["95%", "90%", "80%"],
             height="30px",
             background_color=Color.SECONDARY.value,
             border_radius="15px",
@@ -37,7 +37,7 @@ def results() -> rx.Component:
         ),
 
         # Radar chart and area scores side by side
-        rx.hstack(
+        rx.flex(
             # Radar chart
             rx.recharts.radar_chart(
                 rx.recharts.radar(
@@ -101,10 +101,14 @@ def results() -> rx.Component:
                 ),
                 spacing="1em",
                 align_items="center",  # Alinea las barras al centro verticalmente
-                margin_left="2em",
-                width="15%",  # Ajusta el ancho del contenedor de las barras de progreso
-                margin_top="2em",  # Añade margen superior para bajar las barras
+
+                width=["90%", "50%", "15%"],
+                margin_left=["1em", "1.5em", "2em"],
+                margin_top=["1em", "1.5em", "2em"]
             ),
+
+            flex_direction=["column", "column", "row"],
+            width="100%",
         ),
 
         rx.text(
