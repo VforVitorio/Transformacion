@@ -366,7 +366,7 @@ class State(rx.State):
     def calculate_area_score(self, area_questions: range) -> Tuple[float, float]:
         total_possible = len(area_questions) * 4
         area_score = sum(self.scores[q] for q in area_questions)
-        return area_score, (area_score / total_possible) * 100
+        return area_score, round((area_score / total_possible) * 100)
 
     def calculate_total_score(self) -> Tuple[float, Dict[str, float]]:
         """Calcula la puntuación total y por área."""
