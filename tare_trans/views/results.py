@@ -5,6 +5,7 @@ from tare_trans.styles.styles import TextColor, Color
 
 def results() -> rx.Component:
     CHART_COLOR = "#7F56D9"
+    MAX_BAR_WIDTH = "200px"  # Ajusta este valor según el ancho del texto más largo
 
     return rx.vstack(
         rx.heading("Resultados de Madurez Digital", padding_top="1em"),
@@ -50,11 +51,12 @@ def results() -> rx.Component:
                 rx.recharts.polar_angle_axis(data_key="area"),
                 rx.recharts.polar_radius_axis(angle=90, domain=[0, 100]),
                 data=State.radar_chart_data,
-                width="80%",  # Aumenta el ancho del gráfico de radar
-                height=650,  # Aumenta la altura del gráfico de radar
+                width="80%",  # Reduce el ancho del gráfico de radar
+                height=650,  # Reduce la altura del gráfico de radar
             ),
 
-
+            # Spacer
+            rx.spacer(),
 
             # Area scores with individual progress bars
             rx.vstack(
@@ -85,7 +87,7 @@ def results() -> rx.Component:
                                 font_weight="bold",
                                 font_size="0.9em",  # Aumenta el tamaño de fuente
                             ),
-                            width="100%",  # Tamaño de la barra
+                            width=MAX_BAR_WIDTH,  # Tamaño fijo de la barra
                             height="20px",
                             background_color=Color.SECONDARY.value,
                             border_radius="10px",
@@ -101,7 +103,7 @@ def results() -> rx.Component:
                 align_items="center",  # Alinea las barras al centro verticalmente
                 margin_left="2em",
                 width="15%",  # Ajusta el ancho del contenedor de las barras de progreso
-                margin_top="2.5em",  # Añade margen superior para bajar las barras
+                margin_top="2em",  # Añade margen superior para bajar las barras
             ),
         ),
 
