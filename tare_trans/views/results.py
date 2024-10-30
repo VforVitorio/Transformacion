@@ -111,10 +111,7 @@ def results() -> rx.Component:
             width="100%",
         ),
 
-        rx.text(
-            f"Nivel de Madurez: {State.maturity_level}",
-            color=TextColor.PRIMARY.value,
-        ),
+
         spacing="4",
         align_items="center",
     )

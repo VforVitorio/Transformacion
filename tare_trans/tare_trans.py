@@ -8,6 +8,8 @@ from tare_trans.views.form import form
 from tare_trans.components.cursor import custom_cursor
 from tare_trans.views.questionnaire import questionnaire
 from tare_trans.views.results import results
+from tare_trans.views.level import maturity_level
+from tare_trans.views.footer import footer  # Importar el footer
 
 
 def index() -> rx.Component:
@@ -21,7 +23,8 @@ def index() -> rx.Component:
                 spacing=Size.VERY_BIG.value
             ),
             width="100%"
-        )
+        ),
+        footer()  # Añadir el footer aquí
     )
 
 
@@ -36,7 +39,8 @@ def page_form() -> rx.Component:
                 spacing=Size.VERY_BIG.value
             ),
             width="100%"
-        )
+        ),
+        footer()  # Añadir el footer aquí
     )
 
 
@@ -51,7 +55,10 @@ def results_page() -> rx.Component:
                 spacing=Size.VERY_BIG.value
             ),
             width="100%"
-        )
+        ),
+        maturity_level(),
+
+        footer()  # Añadir el footer aquí
     )
 
 
@@ -66,7 +73,8 @@ def sector_primario() -> rx.Component:
                 spacing=Size.VERY_BIG.value
             ),
             width="100%"
-        )
+        ),
+        footer()  # Añadir el footer aquí
     )
 
 
@@ -81,7 +89,8 @@ def sector_secundario() -> rx.Component:
                 spacing=Size.VERY_BIG.value
             ),
             width="100%"
-        )
+        ),
+        footer()  # Añadir el footer aquí
     )
 
 
@@ -96,7 +105,8 @@ def sector_terciario() -> rx.Component:
                 spacing=Size.VERY_BIG.value
             ),
             width="100%"
-        )
+        ),
+        footer()  # Añadir el footer aquí
     )
 
 
