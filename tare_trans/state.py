@@ -1,5 +1,5 @@
 import reflex as rx
-from typing import List, Dict, Tuple, Union, Any
+from typing import List, Dict, Tuple, Union
 
 
 class State(rx.State):
@@ -12,11 +12,11 @@ class State(rx.State):
     scores: List[int] = [0] * 30
     # Definición de las áreas y sus pesos
     areas = {
-        "estrategia": {"name": "Estrategia y Liderazgo Digital", "weight": 0.20, "questions": range(0, 5)},
-        "cultura": {"name": "Cultura y Habilidades Digitales", "weight": 0.20, "questions": range(5, 10)},
-        "procesos": {"name": "Procesos y Operaciones", "weight": 0.20, "questions": range(10, 15)},
-        "tecnologia": {"name": "Tecnología y Datos", "weight": 0.20, "questions": range(15, 20)},
-        "experiencia": {"name": "Experiencia del Cliente", "weight": 0.20, "questions": range(20, 30)}
+        "Estrategia y Liderazgo Digital": {"name": "Estrategia y Liderazgo Digital", "weight": 0.20, "questions": range(0, 5)},
+        "Cultura y Habilidades Digitales": {"name": "Cultura y Habilidades Digitales", "weight": 0.20, "questions": range(5, 10)},
+        "Procesos y operaciones": {"name": "Procesos y Operaciones", "weight": 0.20, "questions": range(10, 15)},
+        "Tecnología y datos": {"name": "Tecnología y Datos", "weight": 0.20, "questions": range(15, 20)},
+        "Experiencia del Cliente": {"name": "Experiencia del Cliente", "weight": 0.20, "questions": range(20, 30)}
     }
 
     # Lista de preguntas actualizada con la estructura correcta
@@ -375,9 +375,10 @@ class State(rx.State):
 
         for area, details in self.areas.items():
             score, percentage = self.calculate_area_score(details["questions"])
-            weighted_score = percentage * details["weight"]
-            area_scores[area] = weighted_score
-            total_score += weighted_score
+            # Guardar el porcentaje directamente
+            area_scores[area] = percentage
+            # Aplicar el peso al porcentaje
+            total_score += percentage * details["weight"]
 
         return total_score, area_scores
 
