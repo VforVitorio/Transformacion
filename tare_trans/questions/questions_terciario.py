@@ -13,4 +13,24 @@ questions_terciario: List[Dict[str, Union[str, List[str]]]] = [
             "Opción 5"
         ]
     },
+    {
+        "question": "¿Pregunta específica para SECTOR TERCIARIO   1?",
+        "options": [
+            "Opción 1",
+            "Opción 2",
+            "Opción 3",
+            "Opción 4",
+            "Opción 5"
+        ]
+    },
+    {
+        "question": "¿Pregunta específica para SECTOR TERCIARIO   1?",
+        "options": [
+            "Opción 1",
+            "Opción 2",
+            "Opción 3",
+            "Opción 4",
+            "Opción 5"
+        ]
+    },
 ]
