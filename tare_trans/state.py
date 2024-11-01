@@ -13,8 +13,8 @@ class State(rx.State):
     current_question: int = 0
     answers: List[str] = [""] * 30
     scores: List[int] = [0] * 30
-    questions: List[Dict[str, Union[str, List[str]]]] = questions_primario
-
+    sector: str = ""
+    questions: List[Dict[str, Union[str, List[str]]]] = []
     # Definición de las áreas y sus pesos
     areas = {
         "Estrategia y Liderazgo Digital": {"name": "Estrategia y Liderazgo Digital", "weight": 0.20, "questions": range(0, 5)},
@@ -23,6 +23,19 @@ class State(rx.State):
         "Tecnología y datos": {"name": "Tecnología y Datos", "weight": 0.20, "questions": range(15, 20)},
         "Experiencia del Cliente": {"name": "Experiencia del Cliente", "weight": 0.20, "questions": range(20, 30)}
     }
+
+    def set_sector(self, sector: str):
+        print("Setting sector to:", sector)  # Add logging
+        self.sector = sector
+        if sector == "Sector primario":
+            self.questions = questions_primario
+        elif sector == "Sector secundario":
+            self.questions = questions_secundario
+        elif sector == "Sector terciario":
+            self.questions = questions_terciario
+        else:
+            self.questions = []
+        print("Sector and questions updated")
 
     @rx.var
     def current_question_number(self) -> str:
@@ -34,7 +47,10 @@ class State(rx.State):
 
     @rx.var
     def current_question_data(self) -> Dict[str, List[str]]:
-        return self.questions[self.current_question]
+        if self.questions and 0 <= self.current_question < len(self.questions):
+            return self.questions[self.current_question]
+        else:
+            return {"question": "No hay pregunta disponible", "options": []}
 
     @rx.var
     def current_answer(self) -> str:

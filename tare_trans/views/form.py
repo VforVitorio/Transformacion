@@ -1,17 +1,21 @@
 import reflex as rx
 from tare_trans.styles.colors import Color, TextColor
 from tare_trans.components.redirect import redirect_based_on_sector
+from tare_trans.state import State
 
 
-class FormState(rx.State):
-    sector: str = ""
+class FormState(State):
+    selected_sector: str = ""  # Renamed from sector to selected_sector
 
     def set_sector(self, value: str):
-        self.sector = value
+        self.selected_sector = value
+        self.sector = value  # Set parent state directly
+        print("Sector cambiado a:", self.sector)
 
     def handle_submit(self, form_data: dict):
-        if self.sector:
-            return rx.redirect(f"/{self.sector.lower().replace(' ', '-')}")
+        if self.selected_sector:
+            State.set_sector(self.selected_sector)
+            return rx.redirect(f"/{self.selected_sector.lower().replace(' ', '-')}")
         else:
             return rx.window_alert("Por favor, selecciona un sector")
 
@@ -43,17 +47,29 @@ def form() -> rx.Component:
                             rx.vstack(
                                 rx.text("¿En qué sector se encuentra tu empresa?",
                                         color=TextColor.PRIMARY.value, font_size="sm", font_weight="medium"),
-                                rx.select(
-                                    ["Sector primario", "Sector secundario",
-                                        "Sector terciario"],
-                                    placeholder="Selecciona un sector",
-                                    color=TextColor.PRIMARY.value,
-                                    bg=Color.SECONDARY.value,
-                                    border_color=Color.ACCENT.value,
-                                    _focus={
-                                        "border_color": Color.ACCENT.value},
-                                    width="100%",
-                                    value=FormState.sector,
+
+
+                                rx.select.root(
+                                    rx.select.trigger(
+                                        placeholder="Selecciona un sector",
+                                        color=TextColor.PRIMARY.value,
+                                        bg=Color.SECONDARY.value,
+                                        border_color=Color.ACCENT.value,
+                                        _focus={
+                                            "border_color": Color.ACCENT.value},
+                                        width="100%",
+                                    ),
+                                    rx.select.content(
+                                        rx.select.group(
+                                            rx.select.item(
+                                                "Sector primario", value="Sector primario"),
+                                            rx.select.item(
+                                                "Sector secundario", value="Sector secundario"),
+                                            rx.select.item(
+                                                "Sector terciario", value="Sector terciario"),
+                                        ),
+                                    ),
+                                    value=FormState.selected_sector,
                                     on_change=FormState.set_sector,
                                 ),
                                 rx.text(
@@ -61,7 +77,7 @@ def form() -> rx.Component:
                                     color="red.500",
                                     font_size="sm",
                                     display=rx.cond(
-                                        rx.select("sector") == "", "block", "none"),
+                                        rx.select("selected_sector") == "", "block", "none"),
                                 ),
                                 align_items="start",
                                 spacing="2",
@@ -83,7 +99,8 @@ def form() -> rx.Component:
                                         bg=Color.ACCENT.value,
                                         color=TextColor.PRIMARY.value,
                                         _hover={"opacity": 0.8},
-                                        is_disabled=rx.select("sector") == "",
+                                        is_disabled=rx.select(
+                                            "selected_sector") == "",
                                     ),
                                     as_child=True,
                                 ),
