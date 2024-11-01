@@ -15,6 +15,11 @@ class State(rx.State):
     scores: List[int] = [0] * 30
     sector: str = ""
     questions: List[Dict[str, Union[str, List[str]]]] = []
+
+    is_loading: bool = True
+    current_question_data: Dict[str, List[str]] = {
+        "question": "Por favor, selecciona un sector primero", "options": []}
+
     # Definición de las áreas y sus pesos
     areas = {
         "Estrategia y Liderazgo Digital": {"name": "Estrategia y Liderazgo Digital", "weight": 0.20, "questions": range(0, 5)},
@@ -25,17 +30,35 @@ class State(rx.State):
     }
 
     def set_sector(self, sector: str):
-        print("Setting sector to:", sector)  # Add logging
+        print("State set_sector called with:", sector)
         self.sector = sector
+        print("Setting loading to True")
+        self.is_loading = True
         if sector == "Sector primario":
+            print("Loading primario questions")
             self.questions = questions_primario
         elif sector == "Sector secundario":
+            print("Loading secundario questions")
             self.questions = questions_secundario
         elif sector == "Sector terciario":
+            print("Loading terciario questions")
             self.questions = questions_terciario
         else:
             self.questions = []
-        print("Sector and questions updated")
+        self.update_current_question()
+        print("Setting loading to False")
+        self.is_loading = False
+        print("Sector setup completed")
+
+    def update_current_question(self):
+        if not self.sector:
+            self.current_question_data = {
+                "question": "Por favor, selecciona un sector primero", "options": []}
+        elif self.questions and 0 <= self.current_question < len(self.questions):
+            self.current_question_data = self.questions[self.current_question]
+        else:
+            self.current_question_data = {
+                "question": "No hay pregunta disponible", "options": []}
 
     @rx.var
     def current_question_number(self) -> str:
@@ -44,13 +67,6 @@ class State(rx.State):
     @rx.var
     def progress_percentage(self) -> float:
         return (self.current_question + 1) / 30 * 100
-
-    @rx.var
-    def current_question_data(self) -> Dict[str, List[str]]:
-        if self.questions and 0 <= self.current_question < len(self.questions):
-            return self.questions[self.current_question]
-        else:
-            return {"question": "No hay pregunta disponible", "options": []}
 
     @rx.var
     def current_answer(self) -> str:

@@ -2,19 +2,33 @@ import reflex as rx
 from tare_trans.styles.colors import Color, TextColor
 from tare_trans.components.redirect import redirect_based_on_sector
 from tare_trans.state import State
+from tare_trans.questions.questions_primario import questions_primario
+from tare_trans.questions.questions_secundario import questions_secundario
+from tare_trans.questions.questions_terciario import questions_terciario
 
 
 class FormState(State):
-    selected_sector: str = ""  # Renamed from sector to selected_sector
+    selected_sector: str = ""
 
     def set_sector(self, value: str):
+        print("FormState set_sector called with:", value)
         self.selected_sector = value
-        self.sector = value  # Set parent state directly
-        print("Sector cambiado a:", self.sector)
+        print("About to call parent set_sector")
+        # Set values directly on self since we inherit from State
+        self.sector = value
+        if value == "Sector primario":
+            self.questions = questions_primario
+        elif value == "Sector secundario":
+            self.questions = questions_secundario
+        elif value == "Sector terciario":
+            self.questions = questions_terciario
+        else:
+            self.questions = []
+        self.update_current_question()
+        print("Parent set_sector completed")
 
     def handle_submit(self, form_data: dict):
         if self.selected_sector:
-            State.set_sector(self.selected_sector)
             return rx.redirect(f"/{self.selected_sector.lower().replace(' ', '-')}")
         else:
             return rx.window_alert("Por favor, selecciona un sector")
