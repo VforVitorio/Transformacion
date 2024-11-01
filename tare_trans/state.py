@@ -1,6 +1,8 @@
 import reflex as rx
 from typing import List, Dict, Tuple, Union
-from tare_trans.questions import questions
+from tare_trans.questions.questions_primario import questions_primario
+from tare_trans.questions.questions_secundario import questions_secundario
+from tare_trans.questions.questions_terciario import questions_terciario
 
 
 class State(rx.State):
@@ -11,7 +13,7 @@ class State(rx.State):
     current_question: int = 0
     answers: List[str] = [""] * 30
     scores: List[int] = [0] * 30
-    questions: List[Dict[str, Union[str, List[str]]]] = questions
+    questions: List[Dict[str, Union[str, List[str]]]] = questions_primario
 
     # Definición de las áreas y sus pesos
     areas = {
