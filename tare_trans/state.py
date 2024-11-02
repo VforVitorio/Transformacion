@@ -130,12 +130,14 @@ class State(rx.State):
     def next_question(self):
         if self.current_question < 29:
             self.current_question += 1
+            self.update_current_question()
         else:
             return self.show_results()
 
     def previous_question(self):
         if self.current_question > 0:
             self.current_question -= 1
+            self.update_current_question()
 
     def change_page(self):
         return rx.redirect("/results", external=False)
