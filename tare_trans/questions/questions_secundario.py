@@ -1,10 +1,8 @@
 from typing import List, Dict, Union
 
-
-# Lista de preguntas actualizada con la estructura correcta
 questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
     {
-        "question": "¿Existe una estrategia digital clara que integre tecnologías agrícolas como la automatización de riego, drones o sistemas de monitoreo de cultivos?",
+        "question": "¿Existe una estrategia digital clara que integre tecnologías como la automatización industrial, la robótica o el Internet de las Cosas (IoT) en los procesos de producción?",
         "options": [
             "No hay estrategia digital",
             "Hay una estrategia digital, pero no está bien definida ni alineada",
@@ -14,7 +12,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿El liderazgo está comprometido con la adopción de tecnologías para mejorar la eficiencia y sostenibilidad en la producción agrícola o ganadera?",
+        "question": "¿El liderazgo de la empresa está comprometido con la adopción de tecnologías avanzadas (IA, automatización, IoT) para mejorar la eficiencia y calidad en la producción?",
         "options": [
             "No hay compromiso por parte del liderazgo",
             "Algunos líderes muestran interés, pero no están plenamente comprometidos",
@@ -24,7 +22,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿Se asignan recursos adecuados para la implementación de tecnologías como sensores de suelo, software de gestión de cultivos o maquinaria automatizada?",
+        "question": "¿Se asignan recursos adecuados para la implementación de tecnologías como la robótica, IA, o sistemas de gestión integrados (ERP) en la producción?",
         "options": [
             "No se asignan recursos",
             "Los recursos asignados son insuficientes",
@@ -34,7 +32,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿La empresa mide el impacto de las nuevas tecnologías en la productividad y reducción de costos operativos?",
+        "question": "¿La empresa mide el impacto de las nuevas tecnologías en la mejora de la eficiencia, calidad y costos de producción?",
         "options": [
             "No se mide",
             "Se miden resultados aislados",
@@ -44,7 +42,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿Existen métricas claras para evaluar el impacto de tecnologías como IoT, drones, o sistemas de riego inteligentes en la producción?",
+        "question": "¿Existen métricas claras para evaluar el impacto de tecnologías como la automatización o la IA en los procesos de manufactura?",
         "options": [
             "No hay métricas definidas",
             "Hay métricas, pero no están bien definidas",
@@ -54,7 +52,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿La empresa fomenta una cultura abierta al cambio y la adopción de nuevas tecnologías en la agricultura o producción primaria?",
+        "question": "¿La empresa fomenta una cultura abierta al cambio y la adopción de nuevas tecnologías en el proceso de manufactura?",
         "options": [
             "No existe apertura al cambio",
             "Hay resistencia significativa al cambio",
@@ -64,7 +62,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿Se invierte en el desarrollo de habilidades digitales para el manejo de nuevas tecnologías (sensores, maquinaria automatizada) entre los empleados?",
+        "question": "¿Se invierte en el desarrollo de habilidades digitales para el manejo de maquinaria automatizada, robots industriales o software de gestión en la fábrica?",
         "options": [
             "No se invierte en formación digital",
             "Se invierte de manera limitada",
@@ -74,7 +72,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿Se incentiva la adopción de tecnologías digitales para la mejora de procesos agrícolas o ganaderos en todos los niveles de la empresa?",
+        "question": "¿Se incentiva la adopción de tecnologías digitales para la mejora de procesos de producción en todos los niveles de la empresa?",
         "options": [
             "No se incentiva el uso de tecnologías digitales",
             "Se incentiva el uso solo en ciertos departamentos",
@@ -84,7 +82,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿La empresa tiene un enfoque en la colaboración y el uso de tecnología digital para la gestión y planificación agrícola?",
+        "question": "¿La empresa tiene un enfoque en la colaboración y el uso de tecnología digital para la gestión de producción y planificación industrial?",
         "options": [
             "No hay herramientas o políticas de colaboración digital",
             "Hay herramientas, pero no se usan de manera efectiva",
@@ -94,7 +92,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿Los empleados tienen las herramientas necesarias para colaborar y comunicarse digitalmente en operaciones agrícolas y ganaderas?",
+        "question": "¿Los empleados tienen las herramientas necesarias para colaborar y comunicarse digitalmente en la gestión de la cadena de producción?",
         "options": [
             "No tienen las herramientas necesarias",
             "Tienen algunas herramientas, pero no son suficientes",
@@ -103,9 +101,8 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
             "Todos los empleados tienen acceso a las herramientas digitales necesarias"
         ]
     },
-
     {
-        "question": "¿Los procesos clave de producción agrícola y ganadera han sido digitalizados para mejorar la eficiencia?",
+        "question": "¿Los procesos clave de producción están digitalizados para mejorar la eficiencia y calidad de los productos manufacturados?",
         "options": [
             "No han sido digitalizados",
             "Algunos procesos están parcialmente digitalizados",
@@ -115,7 +112,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿Se utilizan tecnologías avanzadas (sensores, drones, automatización) para optimizar los procesos de producción agrícola?",
+        "question": "¿Se utilizan tecnologías avanzadas (IA, robótica, automatización) para mejorar los procesos de producción y gestión de la fábrica?",
         "options": [
             "No se utilizan",
             "Se utilizan en algunos procesos, pero de manera limitada",
@@ -125,7 +122,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿Se realizan análisis de datos para mejorar los procesos agrícolas o de producción ganadera?",
+        "question": "¿Se realizan análisis de datos para mejorar la producción y reducir costos operativos en la fábrica?",
         "options": [
             "No se realizan análisis de datos",
             "Se analizan datos, pero no se usan para mejorar procesos",
@@ -135,7 +132,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿Los equipos están alineados y trabajan de manera coordinada en torno a procesos agrícolas digitales?",
+        "question": "¿Los equipos de producción están alineados y trabajan de manera coordinada en torno a los procesos digitales de manufactura?",
         "options": [
             "No hay coordinación",
             "Hay coordinación en algunos equipos, pero es limitada",
@@ -145,7 +142,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿Los sistemas de la empresa permiten la escalabilidad y flexibilidad para la expansión de operaciones agrícolas o ganaderas?",
+        "question": "¿Los sistemas de la empresa permiten la escalabilidad y flexibilidad para aumentar la capacidad de producción cuando sea necesario?",
         "options": [
             "No permiten escalabilidad ni flexibilidad",
             "Los sistemas son escalables en algunas áreas, pero limitados en otras",
@@ -155,7 +152,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿La empresa utiliza tecnologías de vanguardia (sensores IoT, análisis de datos, automatización) en sus operaciones agrícolas?",
+        "question": "¿La empresa utiliza tecnologías de vanguardia (IA, Big Data, robótica avanzada) en sus operaciones de manufactura?",
         "options": [
             "No utiliza tecnologías avanzadas",
             "Se utilizan algunas tecnologías, pero no están integradas",
@@ -165,7 +162,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿Se gestionan los datos de manera centralizada y se utilizan para la toma de decisiones estratégicas en producción agrícola?",
+        "question": "¿Se gestionan los datos de manera centralizada y se utilizan para la toma de decisiones estratégicas en la producción?",
         "options": [
             "Los datos no se gestionan centralizadamente",
             "La gestión de datos es limitada y no se utiliza para decisiones clave",
@@ -175,7 +172,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿Existen políticas y herramientas adecuadas para la seguridad y privacidad de los datos agrícolas?",
+        "question": "¿Existen políticas y herramientas adecuadas para la seguridad y privacidad de los datos de producción y operativos?",
         "options": [
             "No hay políticas ni herramientas",
             "Hay políticas, pero no están bien implementadas",
@@ -185,7 +182,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿Se usan sistemas de análisis predictivo para la mejora de la producción y optimización de recursos en agricultura?",
+        "question": "¿Se usan sistemas de análisis predictivo para la mejora del mantenimiento preventivo y la eficiencia de la línea de producción?",
         "options": [
             "No se usan sistemas de análisis predictivo",
             "Se utilizan en algunos procesos, pero no de manera significativa",
@@ -195,7 +192,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿La empresa utiliza herramientas de gestión del conocimiento para compartir información y datos agrícolas?",
+        "question": "¿La empresa utiliza herramientas de gestión del conocimiento para compartir información técnica y operativa?",
         "options": [
             "No se utilizan herramientas de gestión del conocimiento",
             "Las herramientas existen, pero no se utilizan efectivamente",
@@ -205,7 +202,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿La empresa tiene una estrategia digital centrada en mejorar la trazabilidad y transparencia de productos agrícolas para los clientes?",
+        "question": "¿La empresa tiene una estrategia digital centrada en mejorar la calidad y personalización de productos manufacturados para los clientes?",
         "options": [
             "No hay estrategia centrada en el cliente",
             "Existe, pero no está bien definida ni aplicada",
@@ -215,17 +212,17 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿Se utilizan datos para asegurar la calidad y origen de los productos agrícolas ofrecidos a los clientes?",
+        "question": "¿Se utilizan datos para asegurar la calidad y cumplimiento de normas en los productos manufacturados?",
         "options": [
-            "No se utilizan datos para la calidad y trazabilidad",
-            "Se utilizan, pero de manera limitada y no transparente",
-            "Se utilizan parcialmente para asegurar la calidad y origen",
+            "No se utilizan datos para la calidad y cumplimiento",
+            "Se utilizan, pero de manera limitada y no personalizada",
+            "Se utilizan parcialmente para asegurar la calidad y cumplimiento",
             "Se utilizan para asegurar la calidad, pero no en todas las operaciones",
-            "Los datos aseguran la calidad y origen de forma consistente y transparente"
+            "Los datos aseguran la calidad y cumplimiento de forma consistente y transparente"
         ]
     },
     {
-        "question": "¿La empresa ofrece canales digitales para interactuar con los clientes (e-commerce, apps de pedidos, etc.)?",
+        "question": "¿La empresa ofrece múltiples canales digitales para interactuar con clientes (e-commerce, apps de pedidos, etc.)?",
         "options": [
             "No hay canales digitales activos",
             "Existen algunos canales, pero no están integrados",
@@ -245,7 +242,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿La empresa recoge y actúa sobre el feedback del cliente para mejorar productos agrícolas?",
+        "question": "¿La empresa recoge y actúa sobre el feedback del cliente para mejorar productos manufacturados?",
         "options": [
             "No se recoge feedback del cliente",
             "Se recoge, pero rara vez se actúa sobre él",
@@ -255,7 +252,7 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
         ]
     },
     {
-        "question": "¿Los empleados están capacitados para ofrecer información sobre productos agrícolas y trazabilidad a los clientes?",
+        "question": "¿Los empleados están capacitados para ofrecer información técnica y de calidad a los clientes sobre productos manufacturados?",
         "options": [
             "No hay capacitación para el servicio digital",
             "Existe capacitación limitada",
@@ -264,44 +261,46 @@ questions_secundario: List[Dict[str, Union[str, List[str]]]] = [
             "Todos los empleados reciben formación continua para ofrecer un excelente servicio digital"
         ]
     },
+
     {
-        "question": "¿Se utilizan chatbots o IA para mejorar la atención al cliente?",
+        "question": "¿Se utilizan chatbots o IA para mejorar la atención al cliente en servicios relacionados con productos manufacturados?",
         "options": [
-            "No se utilizan chatbots ni IA para la atención al cliente",
-            "Los chatbots o IA están implementados, pero con funciones limitadas",
-            "Se utilizan en algunos aspectos del servicio al cliente",
-            "Los chatbots o IA ayudan a mejorar la atención al cliente en la mayoría de las interacciones",
-            "Los chatbots y la IA están completamente integrados y son parte de la estrategia de atención al cliente"
+            "No se utilizan chatbots ni IA para la atención al cliente.",
+            "Los chatbots o IA están implementados, pero con funciones limitadas.",
+            "Se utilizan en algunos aspectos del servicio al cliente.",
+            "Los chatbots o IA ayudan a mejorar la atención al cliente en la mayoría de las interacciones.",
+            "Los chatbots y la IA están completamente integrados y son parte de la estrategia de atención al cliente."
         ]
     },
     {
         "question": "¿La empresa ofrece una experiencia de usuario coherente y atractiva en todos los puntos de contacto digitales?",
         "options": [
-            "La experiencia de usuario es inconsistente y no se centra en el cliente",
-            "Hay esfuerzos para mejorar, pero la experiencia es limitada",
-            "La experiencia es coherente en algunos puntos de contacto",
-            "La mayoría de los puntos de contacto ofrecen una experiencia coherente y atractiva",
-            "Todos los puntos de contacto digitales proporcionan una experiencia excelente, centrada en el usuario"
+            "La experiencia de usuario es inconsistente y no se centra en el cliente.",
+            "Hay esfuerzos para mejorar, pero la experiencia es limitada.",
+            "La experiencia es coherente en algunos puntos de contacto.",
+            "La mayoría de los puntos de contacto ofrecen una experiencia coherente y atractiva.",
+            "Todos los puntos de contacto digitales proporcionan una experiencia excelente, centrada en el usuario."
         ]
     },
     {
-        "question": "¿La empresa ha implementado procesos de automatización para responder rápidamente a las consultas de los clientes?",
+        "question": "¿La empresa ha implementado procesos de automatización para responder rápidamente a las consultas de los clientes sobre productos manufacturados?",
         "options": [
-            "No se ha implementado automatización",
-            "Hay procesos limitados de automatización",
-            "Los procesos de automatización son funcionales, pero no están totalmente implementados",
-            "La mayoría de las consultas se gestionan automáticamente y de manera eficiente",
-            "La automatización es efectiva y ofrece respuestas rápidas a las necesidades de los clientes"
+            "No se ha implementado automatización.",
+            "Hay procesos limitados de automatización.",
+            "Los procesos de automatización son funcionales, pero no están totalmente implementados.",
+            "La mayoría de las consultas se gestionan automáticamente y de manera eficiente.",
+            "La automatización es efectiva y ofrece respuestas rápidas a las necesidades de los clientes."
         ]
     },
     {
         "question": "¿Se realiza monitoreo continuo del comportamiento del cliente en los canales digitales para ajustar estrategias?",
         "options": [
-            "No se realiza monitoreo",
-            "Hay monitoreo limitado, pero no se usa para ajustar estrategias",
-            "El monitoreo es parcial y se utiliza en algunas áreas",
-            "Se realiza monitoreo regular y se ajustan estrategias, aunque no de manera integral",
-            "El monitoreo es continuo y se realizan ajustes estratégicos basados en los datos de comportamiento del cliente"
+            "No se realiza monitoreo.",
+            "Hay monitoreo limitado, pero no se usa para ajustar estrategias.",
+            "El monitoreo es parcial y se utiliza en algunas áreas.",
+            "Se realiza monitoreo regular y se ajustan estrategias, aunque no de manera integral.",
+            "El monitoreo es continuo y se realizan ajustes estratégicos basados en los datos de comportamiento del cliente."
         ]
-    }
+    },
+
 ]
