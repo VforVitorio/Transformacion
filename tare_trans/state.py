@@ -92,7 +92,7 @@ class State(rx.State):
     def answer_question(self, answer: str):
         self.answers[self.current_question] = answer
         # Calculate and store the score
-        score = self.questions[self.current_question]["options"].index(answer)
+        score = self.current_question_data["options"].index(answer)
         self.scores[self.current_question] = score
 
     def calculate_area_score(self, area_questions: range) -> Tuple[float, float]:
