@@ -10,21 +10,12 @@ from tare_trans.questions.questions_terciario import questions_terciario
 class FormState(State):
     selected_sector: str = ""
 
-    def set_sector(self, value: str):
+    async def set_sector(self, value: str):
         print("FormState set_sector called with:", value)
         self.selected_sector = value
         print("About to call parent set_sector")
-        # Set values directly on self since we inherit from State
-        self.sector = value
-        if value == "Sector primario":
-            self.questions = questions_primario
-        elif value == "Sector secundario":
-            self.questions = questions_secundario
-        elif value == "Sector terciario":
-            self.questions = questions_terciario
-        else:
-            self.questions = []
-        self.update_current_question()
+        parent = await self.get_state(State)
+        parent.set_sector(value)
         print("Parent set_sector completed")
 
     def handle_submit(self, form_data: dict):
