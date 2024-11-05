@@ -9,7 +9,7 @@ info = [
         "job": "Ingeniería en Sistemas Inteligentes, UIE",
     },
     {
-        "avatar": "https://avatars.githubusercontent.com/u/4015177",
+        "avatar": "https://avatars.githubusercontent.com/u/161401345",
         "name": "Hugo Iglesias",
         "job": "Ingeniería en Sistemas Inteligentes, UIE",
     }
