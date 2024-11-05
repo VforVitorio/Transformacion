@@ -9,7 +9,7 @@ def maturity_level() -> rx.Component:
             rx.vstack(
                 rx.heading(
                     f"Nivel de Madurez: {State.maturity_level}",
-                    color=Color.ACCENT.value,
+                    color=Color.TERTIARY.value,
                     size="8",
                     align="center"
                 ),
@@ -22,7 +22,7 @@ def maturity_level() -> rx.Component:
                 rx.foreach(
                     State.areas.items(),
                     lambda item: rx.vstack(
-                        rx.heading(item[1]["name"], size="6", align="center"),
+                        rx.heading(item[1]["name"], size="5", align="center"),
                         rx.text(
                             State.area_feedbacks[item[0]],
                             color=TextColor.TERTIARY.value
