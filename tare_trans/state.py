@@ -5,6 +5,11 @@ from tare_trans.questions.questions_secundario import questions_secundario
 from tare_trans.questions.questions_terciario import questions_terciario
 
 
+from tare_trans.feedbacks.feedback_primario import primario_feedback
+from tare_trans.feedbacks.feedback_secundario import secundario_feedback
+from tare_trans.feedbacks.feedback_terciario import terciario_feedback
+
+
 class State(rx.State):
 
     total_score: float = 0.0
@@ -21,7 +26,7 @@ class State(rx.State):
         "question": "Por favor, selecciona un sector primero", "options": []}
 
     # Definición de las áreas y sus pesos
-    areas = {
+    areas: Dict[str, Dict[str, Union[str, float, range]]] = {
         "Estrategia y Liderazgo Digital": {"name": "Estrategia y Liderazgo Digital", "weight": 0.20, "questions": range(0, 5)},
         "Cultura y Habilidades Digitales": {"name": "Cultura y Habilidades Digitales", "weight": 0.20, "questions": range(5, 10)},
         "Procesos y operaciones": {"name": "Procesos y Operaciones", "weight": 0.20, "questions": range(10, 15)},
@@ -148,3 +153,19 @@ class State(rx.State):
         self.area_scores = area_scores
         self.total_score = total_score
         return rx.redirect("/results")
+
+    @rx.var
+    def area_feedbacks(self) -> Dict[str, str]:
+        feedbacks = {}
+        for area in self.areas:
+            score = self.area_scores.get(area, 0)
+            if score <= 25:
+                range_key = "0-25"
+            elif score <= 50:
+                range_key = "26-50"
+            elif score <= 75:
+                range_key = "51-75"
+            else:
+                range_key = "76-100"
+            feedbacks[area] = terciario_feedback[area][range_key]
+        return feedbacks

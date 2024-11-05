@@ -1,4 +1,5 @@
 import reflex as rx
+
 import tare_trans.styles.styles as styles
 from tare_trans.styles.styles import Size
 from tare_trans.views.navbar import navbar
@@ -10,6 +11,7 @@ from tare_trans.views.questionnaire import questionnaire
 from tare_trans.views.results import results
 from tare_trans.views.level import maturity_level
 from tare_trans.views.footer import footer  # Importar el footer
+from tare_trans.components.avatars import card_v2
 
 
 def index() -> rx.Component:
@@ -24,7 +26,6 @@ def index() -> rx.Component:
             ),
             width="100%"
         ),
-
     )
 
 
@@ -57,7 +58,7 @@ def results_page() -> rx.Component:
             width="100%"
         ),
         maturity_level(),
-
+        card_v2(),
         footer()  # Añadir el footer aquí
     )
 

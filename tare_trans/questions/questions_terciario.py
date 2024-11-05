@@ -3,7 +3,6 @@ from typing import List, Dict, Union
 
 # Lista de preguntas actualizada con la estructura correcta
 questions_terciario: List[Dict[str, Union[str, List[str]]]] = [
-
     {
         "question": "¿Existe una estrategia digital clara que integre la digitalización de servicios, plataformas en línea y tecnologías emergentes (como IA y Big Data) para mejorar la experiencia del cliente?",
         "options": [
