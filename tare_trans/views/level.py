@@ -9,8 +9,14 @@ def maturity_level() -> rx.Component:
             rx.vstack(
                 rx.heading(
                     f"Nivel de Madurez: {State.maturity_level}",
-                    color=TextColor.PRIMARY.value,
+                    color=Color.ACCENT.value,
                     size="8",
+                    align="center"
+                ),
+                rx.heading(
+                    f"{State.sector}",
+                    color=TextColor.PRIMARY.value,
+                    size="6",
                     align="center"
                 ),
                 rx.foreach(

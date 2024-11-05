@@ -157,6 +157,14 @@ class State(rx.State):
     @rx.var
     def area_feedbacks(self) -> Dict[str, str]:
         feedbacks = {}
+        # Select the appropriate feedback dictionary based on sector
+        if self.sector == "Sector primario":
+            feedback_dict = primario_feedback
+        elif self.sector == "Sector secundario":
+            feedback_dict = secundario_feedback
+        else:
+            feedback_dict = terciario_feedback
+
         for area in self.areas:
             score = self.area_scores.get(area, 0)
             if score <= 25:
@@ -167,5 +175,5 @@ class State(rx.State):
                 range_key = "51-75"
             else:
                 range_key = "76-100"
-            feedbacks[area] = terciario_feedback[area][range_key]
+            feedbacks[area] = feedback_dict[area][range_key]
         return feedbacks

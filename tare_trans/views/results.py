@@ -8,7 +8,9 @@ def results() -> rx.Component:
     MAX_BAR_WIDTH = "200px"  # Ajusta este valor según el ancho del texto más largo
 
     return rx.vstack(
-        rx.heading("Resultados de Madurez Digital", padding_top="1em"),
+        rx.heading("Resultados de Madurez Digital",
+                   padding_top="1em",
+                   size="7"),
 
         # Total progress bar with text
         rx.box(
