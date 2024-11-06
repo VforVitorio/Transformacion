@@ -6,6 +6,7 @@ Este proyecto es una aplicación web desarrollada con el framework Reflex en Pyt
 
 - Python 3.8 o superior
 - pip (gestor de paquetes de Python)
+- git (herramienta de gestión de versiones de código)
 
 ## Instalación
 
