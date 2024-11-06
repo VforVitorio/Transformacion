@@ -1,3 +1,13 @@
+"""
+Archivo donde se definen los feedbacks correspondientes al sector secundario
+    - Diccionarios por cada area
+        - Clave: rango de porcentaje 
+        - Valor: feedback correspondiente a ese intervalo de porcentaje
+    - Diccionario de sector
+        - Clave: nombre de cada area
+        - Valor: llamada al dicccionario correspondiente a ese area
+
+"""
 
 
 # CREACIÓN DE DICCIONARIOS POR CADA ÁREA

@@ -1,3 +1,10 @@
+"""
+Archivo con las preguntas del sector primario
+Diccionario de diccionarios
+    - Clave pregunta, valor su enunciado
+    - Clave opciones, valor una lista de las 4 opciones por pregunta
+
+"""
 from typing import List, Dict, Union
 
 

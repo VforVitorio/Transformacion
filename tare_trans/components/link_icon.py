@@ -1,10 +1,18 @@
+"""
+Archivo que crea iconos personalizados con enlace
+
+"""
+
 import reflex as rx
 from tare_trans.styles.styles import Size
-# con size dentro de los parametros podemos cambiar el tamaño
-# al icono de bootsrap
 
 
 def link_icon(icon: str, url: str, size: str = "fs-2") -> rx.Component:
+    """
+    Componente con un icono con enlace al exterior
+
+    Returns: link contenido en un icono de la biblioteca Bootstrap CSS
+    """
     return rx.link(
         "",
         class_name=f"bi bi-{icon} {size}",

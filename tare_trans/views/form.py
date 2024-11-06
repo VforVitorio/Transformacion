@@ -1,16 +1,31 @@
+"""
+Archivo encargado de generar el componente del formulario
+
+    - Clase formstate: hereda de State y establece la logica del formulario encapsulada
+    - form(): componente encargado de crear el formulario
+
+"""
+
+
 import reflex as rx
 from tare_trans.styles.colors import Color, TextColor
-from tare_trans.components.redirect import redirect_based_on_sector
 from tare_trans.state import State
-from tare_trans.questions.questions_primario import questions_primario
-from tare_trans.questions.questions_secundario import questions_secundario
-from tare_trans.questions.questions_terciario import questions_terciario
 
 
 class FormState(State):
+    """
+    Clase heredera de State que establece la logica del formulario
+
+    """
     selected_sector: str = ""
 
     async def set_sector(self, value: str):
+        """
+        Funcion asincrona que usa el set sector de la clase padre
+
+        Necesariamente asincrona para que no establezca un sector 
+        sin haber elegido una de las opciones del formulario
+        """
         print("FormState set_sector called with:", value)
         self.selected_sector = value
         print("About to call parent set_sector")
@@ -19,6 +34,11 @@ class FormState(State):
         print("Parent set_sector completed")
 
     def handle_submit(self, form_data: dict):
+        """
+        Maneja el envio del formulario, redirigiendo a la pagina del sector elegido.
+
+        En caso de no elegir sector, muestra un mensaje de error.
+        """
         if self.selected_sector:
             return rx.redirect(f"/{self.selected_sector.lower().replace(' ', '-')}")
         else:
@@ -26,6 +46,13 @@ class FormState(State):
 
 
 def form() -> rx.Component:
+    """
+    Componente que renderiza el formulario.
+        - Campo para rellenar nombre: opcional, no es usado en el resto de la aplicacion
+        - Campo para elegir el sector usando el componente form.root
+        - Boton para volver a la pagina principal
+        - Boton para proseguir al cuestionario, enviando la peticion a State
+    """
     return rx.box(
         rx.vstack(
             rx.card(

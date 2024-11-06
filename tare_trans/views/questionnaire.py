@@ -1,3 +1,12 @@
+"""
+Archivo encargado de construir el componente que genera la pagina del cuestionario de la aplicacion
+
+Contiene:
+    - Frontend del cuestionario: estética de como se dispone en la  pagina
+    - Llamadas al backend en los puntos correspondientes a elegir respuestas y uso de botones
+
+"""
+
 import reflex as rx
 from tare_trans.components.progressbar import ProgressBar
 from tare_trans.styles.styles import Color, TextColor
@@ -5,6 +14,18 @@ from tare_trans.state import State
 
 
 def questionnaire() -> rx.Component:
+    """
+    Componente que renderiza el cuestionario de la aplicacion
+        - Pregunta actual
+        - Barra de progreso con el progreso actual del cuestionario
+        - Numero de preguntas con la actual
+        - Enunciado
+        - Posibles respuestas
+        - Botones de pregunta siguiente y anterior
+        - Correspondientes llamadas a State para manejar la logica de las vistas anteriores
+
+    Returns: componente de Reflex que muestra y recoge la informacion del cuestionario
+    """
     return rx.cond(
         State.is_loading,
         rx.text("Cargando..."),
@@ -87,8 +108,7 @@ def questionnaire() -> rx.Component:
                 left="0",
                 right="0",
                 bottom="0",
-                background=f"linear-gradient(to right, {Color.SECONDARY.value}CC, {
-                    Color.SECONDARY.value}99)",
+                background=f"linear-gradient(to right, {Color.SECONDARY.value}CC, {Color.SECONDARY.value}99)",  # noqa
                 backdrop_filter="blur(3px)",
                 z_index="0",
             )

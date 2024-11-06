@@ -1,3 +1,11 @@
+"""
+Archivo con las preguntas del sector secundario
+Diccionario de diccionarios
+    - Clave pregunta, valor su enunciado
+    - Clave opciones, valor una lista de las 4 opciones por pregunta
+
+"""
+
 from typing import List, Dict, Union
 
 questions_secundario: List[Dict[str, Union[str, List[str]]]] = [

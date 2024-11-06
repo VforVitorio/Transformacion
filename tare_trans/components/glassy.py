@@ -1,8 +1,18 @@
+"""
+Definicion del fondo de pantalla de toda la aplicacion a traves de un componente
+"""
+
 import reflex as rx
 from tare_trans.styles.colors import Color, TextColor
 
 
 def glassy_background() -> rx.Component:
+    """
+    Generacion de un fondo de pantalla usado en todas las partes de la aplicacion
+
+    Returns: fondo de pantalla con un SVG, creando lineas curvas moradas
+
+    """
     return rx.box(
         rx.html(
             f"""

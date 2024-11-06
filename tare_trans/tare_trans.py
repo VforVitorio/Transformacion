@@ -1,5 +1,22 @@
-import reflex as rx
+"""
+GRUPO 05: PROYECTO DE TRANSFORMACIÓN DIGITAL
 
+Este archivo define la aplicacion de la pagina web.
+En ella se usan todos los componentes definidos en el resto de archivos para generar
+varias paginas de la aplicacion:
+    - Pagina principal
+    - Pagina de formulario antes de empezar
+    - Pagina del cuestionario
+    - Una pagina por cada sector
+    - Pagina de los resultados
+
+Se trata del frontend de la aplicacion. El backend puede ser encontrado en el archivo 
+state.py
+
+"""
+
+
+import reflex as rx
 import tare_trans.styles.styles as styles
 from tare_trans.styles.styles import Size
 from tare_trans.views.navbar import navbar
@@ -15,6 +32,18 @@ from tare_trans.components.avatars import card_v2
 
 
 def index() -> rx.Component:
+    """
+    Representa la pagina principal de la aplicacion, usando los componentes
+    definidos en el resto de archivos: 
+        - glassy_background()
+        - navbar()
+        - custom_cursor()
+        - header()
+    Los tres primeros son utilizados en el resto de componentes
+
+    Returns: componente de Reflex que renderiza la página principal
+
+    """
     return rx.box(
         glassy_background(),
         navbar(),
@@ -30,6 +59,16 @@ def index() -> rx.Component:
 
 
 def page_form() -> rx.Component:
+    """
+    Representa la pagina de formulario de la aplicacion.
+    Usa el componente form() renderizado en un espacio vertical centrado
+        -rx.center: centra el contenido
+        -rx.vstack: renderiza el contenido en un contenedor vertical
+        -form(): componente que contiene el frontend del formulario
+
+    Returns: componente de Reflex que renderiza la página del formulario
+
+    """
     return rx.box(
         glassy_background(),
         navbar(),
@@ -46,6 +85,16 @@ def page_form() -> rx.Component:
 
 
 def results_page() -> rx.Component:
+    """
+    Componente que se encarga de crear la pagina de los resultados adquiridos en el cuestionario
+        - results(): componente que contiene la logica y frontend para mostrar los resultados
+        - maturity_level(): componente que muestra el grado de madurez digital de la empresa
+        - card_v2(): componente que muestra la información referente a los creadores de la pagina
+
+
+
+    Returns: componente de reflex que renderiza la pagina de los resultados del final del cuestionario
+    """
     return rx.box(
         glassy_background(),
         navbar(),
@@ -64,6 +113,13 @@ def results_page() -> rx.Component:
 
 
 def sector_primario() -> rx.Component:
+    """
+    Pagina encargada del cuestionario referente al sector primario
+    -questionnaire(): componente encargado de renderizar un cuestionario segun el sector elegido en form()
+
+
+    Returns: componente que renderiza el cuestionario del sector primario
+    """
     return rx.box(
         glassy_background(),
         navbar(),
@@ -80,6 +136,13 @@ def sector_primario() -> rx.Component:
 
 
 def sector_secundario() -> rx.Component:
+    """
+    Pagina encargada del cuestionario referente al sector primario
+    -questionnaire(): componente encargado de renderizar un cuestionario segun el sector elegido en form()
+
+
+    Returns: componente que renderiza el cuestionario del sector secundario
+    """
     return rx.box(
         glassy_background(),
         navbar(),
@@ -96,6 +159,13 @@ def sector_secundario() -> rx.Component:
 
 
 def sector_terciario() -> rx.Component:
+    """
+    Pagina encargada del cuestionario referente al sector primario
+    -questionnaire(): componente encargado de renderizar un cuestionario segun el sector elegido en form()
+
+
+    Returns: componente que renderiza el cuestionario del sector terciario
+    """
     return rx.box(
         glassy_background(),
         navbar(),
@@ -111,13 +181,14 @@ def sector_terciario() -> rx.Component:
     )
 
 
+# Creación de la aplciacioón de reflex mediante el instanciamiento de la clase rx.App
 app = rx.App(
     stylesheets=styles.STYLESHEETS,
     style=styles.BASE_STYLE,
-    frontend_packages=[
-        "react-countup",
-    ]
+
 )
+
+# Con add_page se añaden las paginas creadas anteriormente a la aplicacion
 
 app.add_page(index,
              title="Proyecto de Transformación Digital",

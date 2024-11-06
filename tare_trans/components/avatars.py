@@ -1,7 +1,12 @@
+"""
+Archivo donde se recopila informacion de los avatares y se renderiza a traves 
+de un componente de reflex
+
+"""
 import reflex as rx
 
 from tare_trans.styles.styles import Size
-
+# Lista con el avatar, nombre y empleo de cada uno de los creadores
 info = [
     {
         "avatar": "https://avatars.githubusercontent.com/u/117594428",
@@ -17,6 +22,12 @@ info = [
 
 
 def item(image: str, name: str, job: str):
+    """
+    Componente que crea dos tarjetas con la foto de perfil, nombre y empleo 
+    de los 2 creadores de la aplicacion
+
+    Returns: componente de reflex que renderiza las dos tarjetas de los creadores
+    """
     return rx.vstack(
         rx.image(
             src=image,
@@ -60,9 +71,15 @@ def item(image: str, name: str, job: str):
 
 
 def card_v2():
+    """
+    Componente que usa al anterior para generar cuantas tarjetas sean necesarias
+
+    Returns: tarjetas con los avatares de cada uno de los creadores
+
+    """
     return rx.vstack(
         rx.text("Integrantes", size=Size.BIG.value, color=rx.color(
-            "slate", 11)),  # Added heading
+            "slate", 11)),
         rx.hstack(
             *[item(data["avatar"], data["name"], data["job"])
               for data in info],
@@ -71,6 +88,6 @@ def card_v2():
             justify="center",
         ),
         align="center",
-        spacing="4",  # Add some space between heading and cards
+        spacing="4",
         width="100%",
     )

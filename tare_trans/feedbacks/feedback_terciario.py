@@ -1,3 +1,15 @@
+"""
+Archivo donde se definen los feedbacks correspondientes al sector terciario
+    - Diccionarios por cada area
+        - Clave: rango de porcentaje 
+        - Valor: feedback correspondiente a ese intervalo de porcentaje
+    - Diccionario de sector
+        - Clave: nombre de cada area
+        - Valor: llamada al dicccionario correspondiente a ese area
+
+"""
+
+
 # CREACIÓN DE DICCIONARIOS POR CADA ÁREA
 estrategia_feedback = {
     "0-25": "Actualmente, la estrategia digital no está claramente definida. Para impulsar la transformación, es fundamental comenzar con objetivos específicos que aborden la personalización de servicios al cliente y el aumento de la eficiencia operativa. Un plan de transformación digital para el equipo de liderazgo puede sentar las bases para un enfoque más proactivo.",

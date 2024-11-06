@@ -1,3 +1,12 @@
+"""
+Archivo donde se crea el componente footer, mostrado abajo de todo de las paginas 
+de la app
+
+
+
+"""
+
+
 import reflex as rx
 import tare_trans.styles.styles as styles
 import tare_trans.constants as constants
@@ -5,6 +14,13 @@ from tare_trans.styles.styles import Size, TextColor
 
 
 def footer() -> rx.Component:
+    """
+    Componente del footer de la pagina
+        - Informacion de framework utilizado
+        - Creadores de la aplicacion
+
+    Returns: componente de Reflex que renderiza el footer
+    """
     return rx.hstack(
         rx.vstack(
             rx.text(

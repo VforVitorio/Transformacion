@@ -1,9 +1,23 @@
+"""
+Archivo encargado de renderizar el componente del grado de madurez digital de la empresa
+
+    - Nivel en el que se encuentra la empresa
+    - Sector elegido 
+    - Feedbacks por cada una de las areas de la empresa
+
+"""
+
 import reflex as rx
 from tare_trans.styles.styles import TextColor, Color
 from tare_trans.state import State
 
 
 def maturity_level() -> rx.Component:
+    """
+    Componente que renderiza el nivel de madurez digital de la empresa.
+
+    Returns: componente con sector de la empresa y feedbacks correspondientes a cada area
+    """
     return rx.vstack(
         rx.center(
             rx.vstack(

@@ -1,10 +1,24 @@
-import reflex as rx
+"""
+Pagina inicial de la aplicacion
 
+Renderiza un componente de Reflex que se utiliza como pagina principal de la aplicacion
+
+    - Texto de presentacion
+    - Boton para comenzar el cuestionario
+"""
+
+
+import reflex as rx
 from tare_trans.styles.styles import Size
 from tare_trans.styles.colors import Color, TextColor
 
 
 def header() -> rx.Component:
+    """
+    Componente que renderiza la pagina inicial de la aplicacion
+
+    Returns: componente con texto de bienvenida y boton para comenzar el cuestionario
+    """
     return rx.box(
         rx.vstack(
             rx.heading(

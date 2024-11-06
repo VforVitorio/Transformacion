@@ -1,3 +1,14 @@
+"""
+Archivo que renderiza el componente superior de la aplicacion
+    - Barra delimitadora 
+    - Logo de la universidad
+    - Titulo descriptivo del proyecto academico
+    - Botones con enlaces correspondientes a Linkedin, Github y página principal de la universidad
+
+
+"""
+
+
 import reflex as rx
 import tare_trans.constants as constants
 from tare_trans.styles.styles import Size, Color
@@ -7,6 +18,15 @@ from tare_trans.components.link_icon import link_icon
 def navbar() -> rx.Component:
     # hstack se pinta de forma horizontal
     # vstack pone una linea debajo de la barra
+    """
+    Componente que renderiza la parte superior de la aplicacion
+
+        - Imagen con el logo de la universidad
+        - Titulo descriptivo de proyecto academico
+        - Botones con enlaces referentes a Linkedin, Github y pagina principal de la UIE
+
+    Returns: componente que renderiza la parte superior de la aplicacion con esas 3 vistas
+    """
     return rx.vstack(
         rx.hstack(
             rx.image(

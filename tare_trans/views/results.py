@@ -1,18 +1,34 @@
+"""
+Archivo donde se construye el componente que muestra los resultados obtenidos del cuestionario
+    - Puntuacion total
+    - Puntuacion por area
+    - Grafico de radar 
+
+
+"""
 import reflex as rx
 from tare_trans.state import State
 from tare_trans.styles.styles import TextColor, Color
 
 
 def results() -> rx.Component:
+    """
+    Componente que muestra los resultados
+        - Barras de porcentaje total y por areas
+        - Grafico de radar que muestra todas las areas
+
+    returns: Componente de reflex encargado de mostrar la informacion de puntuaciones obtenidas
+
+    """
     CHART_COLOR = "#7F56D9"
-    MAX_BAR_WIDTH = "200px"  # Ajusta este valor según el ancho del texto más largo
+    MAX_BAR_WIDTH = "200px"
 
     return rx.vstack(
         rx.heading("Resultados de Madurez Digital",
                    padding_top="1em",
                    size="7"),
 
-        # Total progress bar with text
+        # Barra de progreso total con texto
         rx.box(
             rx.box(
                 width=f"{State.total_score}%",
@@ -38,7 +54,7 @@ def results() -> rx.Component:
             position="relative",
         ),
 
-        # Radar chart and area scores side by side
+        # Grafico de radar y puntuaciones por area al lado
         rx.flex(
             # Radar chart
             rx.recharts.radar_chart(
@@ -57,10 +73,10 @@ def results() -> rx.Component:
                 height=650,  # Reduce la altura del gráfico de radar
             ),
 
-            # Spacer
+            # Spacer : añade espacio entre los componentes
             rx.spacer(),
 
-            # Area scores with individual progress bars
+            # Area scores con sus barras de progreso individuales
             rx.vstack(
                 rx.foreach(
                     State.area_scores.items(),
@@ -75,7 +91,7 @@ def results() -> rx.Component:
                             rx.box(
                                 # Porcentaje de puntaje del área
                                 width=f"{item[1]}%",
-                                height="20px",  # Aumenta el tamaño de las barras individuales
+                                height="20px",  # Tamaño de las barras individuales
                                 background_color=CHART_COLOR,
                                 border_radius="10px",
                             ),
@@ -87,7 +103,7 @@ def results() -> rx.Component:
                                 transform="translate(-50%, -50%)",
                                 color="white",
                                 font_weight="bold",
-                                font_size="0.9em",  # Aumenta el tamaño de fuente
+                                font_size="0.9em",  # Tamaño de fuente
                             ),
                             width=MAX_BAR_WIDTH,  # Tamaño fijo de la barra
                             height="20px",
