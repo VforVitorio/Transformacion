@@ -13,7 +13,9 @@ Este proyecto es una aplicación web desarrollada con el framework Reflex en Pyt
 1. Clona el repositorio en tu máquina local:
 
    ```sh
+   git init
    git clone https://github.com/VforVitorio/Transformacion.git
+   cd Transformacion
    ```
 
 2. Crea un entorno virtual (opcional pero recomendado):
@@ -37,7 +39,7 @@ Este proyecto es una aplicación web desarrollada con el framework Reflex en Pyt
    reflex run
    ```
 
-2. Abre tu navegador y navega a `http://localhost:3000` para ver la aplicación en funcionamiento. Este puerto puede cambiar segun la maquina y el propio compilador de reflex notifica el puerto donde se está corriendo la aplicación
+2. Abre tu navegador y navega a `http://localhost:3000` para ver la aplicación en funcionamiento. Este puerto puede cambiar segun la maquina y el propio compilador de reflex notifica el puerto donde se está corriendo la aplicación. En el primer run, es probable que tarde un tiempo mayor al normal, debido a que por debajo estará instalando todas las dependencias necesarias para el correcto funcionamiento de Reflex.
 
 ## Actualización
 
