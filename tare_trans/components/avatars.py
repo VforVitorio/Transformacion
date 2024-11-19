@@ -11,12 +11,12 @@ info = [
     {
         "avatar": "https://avatars.githubusercontent.com/u/117594428",
         "name": "Víctor Vega",
-        "job": "Ingeniería en Sistemas Inteligentes, UIE",
+        "job": "Ingeniería en Sistemas Inteligentes",
     },
     {
         "avatar": "https://avatars.githubusercontent.com/u/161401345",
         "name": "Hugo Iglesias",
-        "job": "Ingeniería en Sistemas Inteligentes, UIE",
+        "job": "Ingeniería en Sistemas Inteligentes",
     }
 ]
 
